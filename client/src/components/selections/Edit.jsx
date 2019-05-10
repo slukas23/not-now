@@ -1,10 +1,10 @@
 import React from "react"
 import axios from "axios"
 
-class EditCollection extends React.Component {
+class EditSelection extends React.Component {
     state = {
-        image: "",
-        title: "",
+        name: "",
+        // image: "",
         description: ""
     }
 
@@ -15,18 +15,18 @@ class EditCollection extends React.Component {
 
         axios
             .put(
-                `http://localhost:5000/api/collections/${id}`,
+                `http://localhost:5000/api/selections/${id}`,
                 {
-                    image: this.image,
-                    name: this.state.title,
+                    name: this.state.name,
+                    //  image: this.image,
                     description: this.state.description
                 },
                 { withCredentials: true }
             )
             .then(() => {
-                this.props.getDetails()
+                //  this.props.getDetails()
                 this.setState({
-                    image: "",
+                    // image: "",
                     name: "",
                     description: ""
                 })
@@ -73,4 +73,4 @@ class EditCollection extends React.Component {
     }
 }
 
-export default EditCollection
+export default EditSelection

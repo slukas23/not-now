@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import api from "../../api"
 
-export default class AddCollection extends Component {
+class AddSelection extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -28,14 +28,14 @@ export default class AddCollection extends Component {
             name: this.state.name,
             description: this.state.description
         }
-        api.addCollection(data)
+        api.addSelection(data)
             .then(result => {
                 console.log("SUCCESS!")
                 this.setState({
                     image: "",
                     name: "",
                     description: "",
-                    message: `Collection '${this.state.name}' successfully created!`
+                    message: `Selection '${this.state.name}' successfully created!`
                 })
                 setTimeout(() => {
                     this.setState({
@@ -47,9 +47,9 @@ export default class AddCollection extends Component {
     }
     render() {
         return (
-            <div className="AddCollection">
-                <div className="collection-wrapper">
-                    <h2>Create new Collection</h2>
+            <div className="AddSelection">
+                <div className="selection-wrapper">
+                    <h2>Create new Selection</h2>
                     <form>
                         {/*  <img value={IMG FROM FIRST ADDED URL GOES HERE}></img>  */}
                         Name:{" "}
@@ -62,7 +62,7 @@ export default class AddCollection extends Component {
                             onChange={this.handleInputChange}
                         />{" "}
                         <br />
-                        <button onClick={e => this.handleClick(e)}>Create collection</button>
+                        <button onClick={e => this.handleClick(e)}>Create selection</button>
                     </form>
                     {this.state.message && <div className="info">{this.state.message}</div>}
                 </div>
@@ -70,3 +70,5 @@ export default class AddCollection extends Component {
         )
     }
 }
+
+export default AddSelection

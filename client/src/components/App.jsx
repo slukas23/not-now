@@ -1,19 +1,19 @@
 import React, { Component } from "react"
 import { Route, Link, NavLink, Switch } from "react-router-dom"
 import Home from "./pages/Home"
-import Collections from "./pages/Collections"
-import AddCollection from "./collections/Add"
+import Selections from "./pages/Selections"
+import Add from "./selections/Add"
 import Secret from "./pages/Secret"
 import Login from "./pages/Login"
 import Signup from "./pages/Signup"
 import api from "../api"
-import CollDetails from "./collections/CollDetails"
+import Details from "./selections/Details"
 
 export default class App extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            collections: []
+            selections: []
         }
     }
 
@@ -37,12 +37,12 @@ export default class App extends Component {
                         <ul class="navbar-nav ml-auto">
                             <li class="navbar-item">
                                 <a class="nav-link">
-                                    {api.isLoggedIn() && <NavLink to="/add-collection">+ New Collection </NavLink>}
+                                    {api.isLoggedIn() && <NavLink to="/add-selection">+ New Selection </NavLink>}
                                 </a>
                             </li>
                             <li class="navbar-item">
                                 <a class="nav-link">
-                                    {api.isLoggedIn() && <NavLink to="/collections">My Collections</NavLink>}
+                                    {api.isLoggedIn() && <NavLink to="/selections">My Selections</NavLink>}
                                 </a>
                             </li>
                             <li class="navbar-item">
@@ -69,9 +69,9 @@ export default class App extends Component {
 
                 <Switch>
                     <Route path="/" exact component={Home} />
-                    <Route exact path="/collections" component={Collections} />
-                    <Route path="/add-collection" component={AddCollection} />
-                    <Route path="/collections/:id" component={CollDetails} />
+                    <Route exact path="/selections" component={Selections} />
+                    <Route path="/add-selection" component={Add} />
+                    <Route path="/selections/:id" component={Details} />
                     <Route path="/signup" component={Signup} />
                     <Route path="/login" component={Login} />
                     <Route path="/secret" component={Secret} />

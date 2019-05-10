@@ -27,7 +27,7 @@ router.post("/signup", (req, res, next) => {
             const hashPass = bcrypt.hashSync(password, salt)
 
             const name = "Home"
-            const description = "Here's the collection of all your notnows"
+            const description = "Here's the selection of all your notnows"
             const imgUrl = ""
             const notNow = []
             const newSelection = new Selection({ name, description, imgUrl, notNow })

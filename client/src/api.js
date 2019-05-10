@@ -61,40 +61,45 @@ export default {
     },
 
     // This is an example on how to use this method in a different file
-    // api.getCollections().then(collections => { /* ... */ })
-    getCollections() {
+    // api.getSelections().then(selections => { /* ... */ })
+    getSelections() {
         return service
-            .get("/collections")
+            .get("/selections")
             .then(res => res.data)
             .catch(errHandler)
     },
 
-    addCollection(body) {
+    addSelection(body) {
         return service
-            .post("/collections", body)
+            .post("/selections", body)
             .then(res => res.data)
             .catch(errHandler)
     },
 
-    // Added the lines below in order to get the collection by id
+    // Added the lines below in order to get the selection by id
 
-    getCollectionById(id) {
+    getSelectionById(id) {
         return service
-            .get(`/collections/${id}`)
+            .get(`/selections/${id}`)
             .then(res => res.data)
             .catch(errHandler)
     },
 
-    // ------------
+    updateSelection() {
+        return service.get()
+    },
+
+    deleteSelection() {},
 
     getSecret() {
         return service
             .get("/secret")
             .then(res => res.data)
             .catch(errHandler)
-    },
+    }
+}
 
-    addPicture(file) {
+/* addPicture(file) {
         const formData = new FormData()
         formData.append("picture", file)
         return service
@@ -105,5 +110,4 @@ export default {
             })
             .then(res => res.data)
             .catch(errHandler)
-    }
-}
+    } */
