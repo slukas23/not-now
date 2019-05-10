@@ -21,13 +21,22 @@ class Details extends React.Component {
         })
     }
 
+    handleEdit = data => {
+        console.log("edit data", data)
+        this.setState({
+            selection: data
+        })
+        console.log("state data", this.state)
+    }
+
     // Delete selection NEW
 
-    deleteSelection = () => {
+    handleDelete = () => {
         const id = this.props.match.params.id
 
-        api.delete(`http://localhost:5000/api/selections/${id}`).then(response => {
-            // redirects to /selections
+        api.deleteSelection(id).then(response => {
+            console.log("Deleted!!")
+            // redirects to /selectionsƒ
             this.props.history.push("/selections")
         })
     }
@@ -42,10 +51,16 @@ class Details extends React.Component {
         let editBlock = <></>
 
         // if (this.props.user && this.props.user._id === this.state.selection.owner) {
+        // check here if the user is authorized to edit the selection
+
         editBlock = (
             <div>
-                <EditSelection selection={selection} getDetails={this.state.getSelectionById} />
-                <button style={{ marginTop: "10px" }} className="btn btn-danger" onClick={this.deleteSelection}>
+                <EditSelection
+                    selection={selection}
+                    getDetails={this.state.getSelectionById}
+                    handleEdit={this.handleEdit}
+                />
+                <button style={{ marginTop: "10px" }} className="btn btn-danger" onClick={this.handleDelete}>
                     Delete Selection
                 </button>
             </div>
@@ -54,10 +69,12 @@ class Details extends React.Component {
 
         return (
             <div className="Selection">
-                <h1>{this.state.selection.name} </h1>
-                <p>{this.state.selection.description}</p>
-                <Link to="/selections">Back</Link>
-                {editBlock}
+                <div>
+                    <h1>{this.state.selection.name} </h1>
+                    <p>{this.state.selection.description}</p>
+                    <Link to="/selections">Back</Link>
+                    {editBlock}
+                </div>
             </div>
         )
     }

@@ -10,13 +10,6 @@ import api from "../api"
 import Details from "./selections/Details"
 
 export default class App extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            selections: []
-        }
-    }
-
     handleLogoutClick(e) {
         api.logout()
     }
@@ -24,41 +17,46 @@ export default class App extends Component {
     render() {
         return (
             <div className="App">
-                <nav class="navbar navbar-light bg-light navbar-expand-lg fixed-top">
-                    <a class="navbar-brand">
-                        <NavLink to="/" exact>
-                            NotNow
-                        </NavLink>
-                    </a>
-                    <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                        <span class="navbar-toggler-icon" />
+                <nav className="navbar navbar-light bg-light navbar-expand-lg fixed-top">
+                    <NavLink className="navbar-brand" to="/" exact>
+                        NotNow
+                    </NavLink>
+
+                    <button className="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                        <span className="navbar-toggler-icon" />
                     </button>
-                    <div class="collapse navbar-collapse" id="navbarCollapse">
-                        <ul class="navbar-nav ml-auto">
-                            <li class="navbar-item">
-                                <a class="nav-link">
-                                    {api.isLoggedIn() && <NavLink to="/add-selection">+ New Selection </NavLink>}
-                                </a>
+                    <div className="collapse navbar-collapse" id="navbarCollapse">
+                        <ul className="navbar-nav ml-auto">
+                            <li className="navbar-item">
+                                {api.isLoggedIn() && (
+                                    <NavLink className="nav-link" to="/add-selection">
+                                        + New Selection{" "}
+                                    </NavLink>
+                                )}
                             </li>
-                            <li class="navbar-item">
-                                <a class="nav-link">
-                                    {api.isLoggedIn() && <NavLink to="/selections">My Selections</NavLink>}
-                                </a>
+                            <li className="navbar-item">
+                                {api.isLoggedIn() && (
+                                    <NavLink className="nav-link" to="/selections">
+                                        My Selections
+                                    </NavLink>
+                                )}
                             </li>
-                            <li class="navbar-item">
-                                <a class="nav-link">{!api.isLoggedIn() && <NavLink to="/signup">Signup</NavLink>}</a>
+                            <li className="navbar-item">
+                                {!api.isLoggedIn() && <NavLink to="/signup">Signup</NavLink>}
                             </li>
-                            <li class="navbar-item">
-                                <a class="nav-link">{!api.isLoggedIn() && <NavLink to="/login">Login</NavLink>}</a>
+                            <li className="navbar-item">
+                                {!api.isLoggedIn() && (
+                                    <NavLink className="nav-link" to="/login">
+                                        Login
+                                    </NavLink>
+                                )}
                             </li>
-                            <li class="navbar-item">
-                                <a class="nav-link">
-                                    {api.isLoggedIn() && (
-                                        <Link to="/" onClick={e => this.handleLogoutClick(e)}>
-                                            Logout
-                                        </Link>
-                                    )}
-                                </a>
+                            <li className="navbar-item">
+                                {api.isLoggedIn() && (
+                                    <Link to="/" onClick={e => this.handleLogoutClick(e)}>
+                                        Logout
+                                    </Link>
+                                )}
                             </li>
                             {/* <li class="navbar-item">
                                 <a class="nav-link">{api.isLoggedIn() && <NavLink to="/secret">Secret</NavLink>}</a>

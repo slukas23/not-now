@@ -5,8 +5,8 @@ const router = express.Router()
 // Route to get all selection
 router.get("/", (req, res, next) => {
     Selection.find()
-        .then(selection => {
-            res.json(selection)
+        .then(selections => {
+            res.json(selections)
         })
         .catch(err => next(err))
 })
@@ -38,10 +38,14 @@ router.get("/:id", (req, res, next) => {
 // Route to update a selection NEW
 
 router.put("/:id", (req, res) => {
-    Selection.findByIdAndUpdate(req.params.id, req.body)
-        .then(() => {
+    Selection.findOneAndUpdate(req.params.id, req.body, { new: true })
+        .then(selection => {
+            console.log("edit successfully!")
             // .status() optional
-            res.status(200).json({ message: "ok" })
+            res.status(200).json({
+                message: "ok",
+                selection: selection
+            })
         })
         .catch(error => {
             res.json(error)
@@ -51,10 +55,11 @@ router.put("/:id", (req, res) => {
 // Route to delete a selection NEW
 
 router.delete("/:id", (req, res) => {
-    Project.findByIdAndDelete(req.params.id)
-        .then(() => {
+    Selection.findOneAndDelete(req.params.id)
+        .then(selection => {
+            console.log("deleted successfully!")
             // .status() optional
-            res.status(200).json({ message: "ok" })
+            res.status(200).json({ message: "ok", selection: selection })
         })
         .catch(error => {
             res.json(error)

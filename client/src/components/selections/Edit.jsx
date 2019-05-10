@@ -1,5 +1,6 @@
 import React from "react"
 import axios from "axios"
+import api from "../../api"
 
 class EditSelection extends React.Component {
     state = {
@@ -11,26 +12,26 @@ class EditSelection extends React.Component {
     handleSubmit = event => {
         event.preventDefault()
 
-        const id = this.props.project._id
+        const id = this.props.selection._id
 
-        axios
-            .put(
-                `http://localhost:5000/api/selections/${id}`,
-                {
-                    name: this.state.name,
-                    //  image: this.image,
-                    description: this.state.description
-                },
-                { withCredentials: true }
-            )
-            .then(() => {
-                //  this.props.getDetails()
-                this.setState({
-                    // image: "",
-                    name: "",
-                    description: ""
-                })
-            })
+        const newData =
+            // represents the body
+            {
+                name: this.state.name,
+                //  image: this.image,
+                description: this.state.description
+            }
+
+        api.updateSelection(id, newData).then(response => {
+            console.log("Component edited!", response)
+
+            // this.setState({
+            //     // image: "",
+            //     name: "",
+            //     description: ""
+            // })
+            this.props.handleEdit(response.selection)
+        })
     }
 
     handleChange = event => {
@@ -44,7 +45,7 @@ class EditSelection extends React.Component {
         return (
             <div>
                 <hr />
-                <h3>Edit form</h3>
+                <h3>Edit your selection!</h3>
                 <form onSubmit={this.handleSubmit}>
                     <div className="form-group">
                         <label>Name:</label>
@@ -52,8 +53,8 @@ class EditSelection extends React.Component {
                             className="form-control"
                             value={this.state.name}
                             onChange={this.handleChange}
-                            name="title"
                             type="text"
+                            name="name"
                         />
                     </div>
                     <div className="form-group">

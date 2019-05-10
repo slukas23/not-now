@@ -85,11 +85,19 @@ export default {
             .catch(errHandler)
     },
 
-    updateSelection() {
-        return service.get()
+    updateSelection(id, body) {
+        return service
+            .put(`/selections/${id}`, body)
+            .then(res => res.data)
+            .catch(errHandler)
     },
 
-    deleteSelection() {},
+    deleteSelection(id) {
+        return service
+            .delete(`/selections/${id}`)
+            .then(res => res.data)
+            .catch(errHandler)
+    },
 
     getSecret() {
         return service

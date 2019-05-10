@@ -10,12 +10,13 @@ class Selections extends Component {
         }
     }
     render() {
+        console.log(this.state.selections)
         return (
             <div className="MySelections">
                 <h2>My Selections</h2>
                 {this.state.selections.map(selection => (
                     <li key={selection._id}>
-                        <Link to={`/selections/${selection._id}`}>{selection.name}</Link>{" "}
+                        <Link to={`/selections/${selection._id}`}>{selection.name}</Link>
                     </li> // here goes a Link
                 ))}
             </div>
