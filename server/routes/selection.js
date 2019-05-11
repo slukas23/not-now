@@ -4,6 +4,7 @@ const router = express.Router()
 
 // Route to get all selection
 router.get("/", (req, res, next) => {
+    console.log("im here")
     Selection.find()
         .then(selections => {
             res.json(selections)

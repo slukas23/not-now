@@ -1,32 +1,65 @@
-// --------------------
-// Definition of variables
-$primary: #ff5f2e;
+$primary: #004e66;
 
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
-//
-// To install Reactstrap:
-// 1) Run in the client folder: $ npm i reactstrap
-// 2) Go to the official documentation and take some examples: https://reactstrap.github.io/
-// import { Button } from 'reactstrap';
-// <Button color="danger">Danger!</Button>
-// ----------------------------------------
-
-// --------------------
-// Style reusable for all components
 
 body {
     margin: 0;
-    margin-top: 90px;
+    // margin-top: 90px;
     padding: 0;
     font-family: Nunito, sans-serif;
+    //background-image: url("./pipes.png");
+    color: #fff;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    -webkit-animation: Gradient 15s ease infinite;
+    -moz-animation: Gradient 15s ease infinite;
+    animation: Gradient 15s ease infinite;
+}
+
+@-webkit-keyframes Gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@-moz-keyframes Gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes Gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 // --------------------
 // Style for App component
 .App {
-    text-align: center;
+    //text-align: center;
+    display: flex;
+    justify-content: center;
 
-    .App-header {
+    /* .App-header {
         background-color: $primary;
         padding: 20px;
         color: white;
@@ -34,21 +67,35 @@ body {
         a {
             color: white;
             padding: 0 5px;
-            text-decoration: unset;
+            text-decoration: none;
         }
 
         a.active {
             font-weight: bold;
         }
-    }
+    } */
 }
 
 // Style for Home component
 .Home {
     p {
-        font-size: 1.2em;
+        font-size: 1.3em;
+        color: #e0e0e0;
     }
 }
+
+.content-wrapper {
+    margin-top: 200px;
+    width: 50vw;
+    padding: 30px;
+    background-color: #004e6609;
+    border: 1px solid #f4f4f47a;
+    border-radius: 20px;
+}
+
+/* .logo {
+    background-image: url("./circular-button-with-two-arrows-pointing-both-laterals.png");
+} */
 
 // Style for Secret component
 .Secret {
@@ -58,8 +105,27 @@ body {
     }
 }
 
-.nav-link {
-    margin-left: 40px;
+h1 {
+    margin-bottom: 30px;
+    font-size: 3em;
+    color: #fff;
+}
+
+/* #signup {
+    margin-bottom: 30px;
+    color: #004e66;
+} */
+
+/* label {
+    color: #474747;
+} */
+
+// Navbar
+
+.navbar {
+    -webkit-box-shadow: 0px 8px 27px 1px rgba(82, 82, 82, 0.51);
+    -moz-box-shadow: 0px 8px 27px 1px rgba(82, 82, 82, 0.51);
+    box-shadow: 0px 8px 27px 1px rgba(82, 82, 82, 0.51);
 }
 
 .nav-link:hover {
@@ -75,27 +141,44 @@ body {
     flex-direction: row;
 }
 
-.Login {
-    background: #f3f3f3;
-    padding: 40px 40px 30px 40px;
-    border-radius: 30px;
-    border: #ccc 1px solid;
-}
+// Signup form background
 
 .Signup {
-    background: #f3f3f3;
+    margin-top: 130px;
+    /*    background: #f3f3f344;
     padding: 40px 40px 30px 40px;
     border-radius: 30px;
-    border: #ccc 1px solid;
+    border: #ccc 1px solid; */
     width: 500px;
+    /* -webkit-box-shadow: 0px 8px 27px 1px rgba(82, 82, 82, 0.51);
+    -moz-box-shadow: 0px 8px 27px 1px rgba(82, 82, 82, 0.51);
+    box-shadow: 0px 8px 27px 1px rgba(82, 82, 82, 0.51); */
 }
 
-h1 {
-    margin-bottom: 30px;
+// Link
+
+.login-google {
+    font-size: 1em;
+    color: #fff;
+    text-decoration: none;
+}
+
+// Container Button + Link
+.login-signup-google {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 /* Create new Selection */
 
 .selection-wrapper {
+    margin-top: 130px;
     background-color: #dbdbdb;
+    width: 500px;
+}
+
+.MySelections {
+    margin-top: 130px;
 }

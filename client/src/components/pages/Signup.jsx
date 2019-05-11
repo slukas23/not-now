@@ -39,7 +39,7 @@ export default class Signup extends Component {
             <div className="Signup">
                 <form>
                     <div class="form-group">
-                        <h1>Sign Up</h1>
+                        <h1 id="signup"> Signup</h1>
                         <label for="exampleInputEmail1">Name</label>
 
                         <input
@@ -65,9 +65,6 @@ export default class Signup extends Component {
                             name="username"
                             onChange={this.handleInputChange}
                         />
-                        <small id="emailHelp" class="form-text text-muted">
-                            We'll never share your username with anyone else.
-                        </small>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Password</label>
@@ -82,15 +79,16 @@ export default class Signup extends Component {
                             placeholder="Password"
                         />
                     </div>
-                    <div class="form-group form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-                        <label class="form-check-label" for="exampleCheck1">
-                            I'm not a Thorbot
-                        </label>
+
+                    <div className="login-signup-google">
+                        <button onClick={e => this.handleClick(e)} type="submit" class="btn btn-primary">
+                            Submit
+                        </button>{" "}
+                        <a className="login-google" href="/auth/google">
+                            {" "}
+                            Signup with Google
+                        </a>
                     </div>
-                    <button onClick={e => this.handleClick(e)} type="submit" class="btn btn-primary">
-                        Submit
-                    </button>
                 </form>
                 {this.state.message && <div className="info info-danger">{this.state.message}</div>}
             </div>

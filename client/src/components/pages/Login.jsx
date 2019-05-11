@@ -26,53 +26,48 @@ export default class Login extends Component {
 
     render() {
         return (
-            <div className="Login">
-                <h1>Login</h1>
-                <form onSubmit={this.handleSubmit} className="form-inline">
-                    <label className="sr-only" for="inlineFormInputGroupUsername2">
-                        {/* Username:{" "} */}
-                    </label>
-                    <div className="input-group mb-2 mr-sm-2">
-                        <div className="input-group-prepend">
-                            <div className="input-group-text">Username</div>
-                        </div>
-
+            <div className="Signup">
+                <form>
+                    <div class="form-group">
+                        <h1 id="signup"> Login</h1>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Username</label>
                         <input
-                            className="form-control"
-                            id="inlineFormInputGroupUsername2"
-                            type="username"
-                            placeholder="Your user name"
+                            class="form-control"
+                            id="exampleInputEmail1"
+                            aria-describedby="emailHelp"
+                            placeholder="Your best username"
+                            type="text"
                             value={this.state.username}
                             name="username"
                             onChange={this.handleInputChange}
                         />
                     </div>
-                    {/*    ----- */}
-                    <div className="input-group mb-2 mr-sm-2">
-                        <div className="input-group-prepend">
-                            <div className="input-group-text">Password</div>
-                        </div>
-
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
                         <input
-                            className="form-control"
-                            id="inlineFormInputGroupUsername2"
                             type="password"
-                            placeholder="Hello123!"
                             value={this.state.password}
                             name="password"
                             onChange={this.handleInputChange}
+                            type="password"
+                            class="form-control"
+                            id="exampleInputPassword1"
+                            placeholder="Password"
                         />
                     </div>
-                    <div className="form-check mb-2 mr-sm-2">
-                        <input className="form-check-input" type="checkbox" id="inlineFormCheck" />
-                        <label className="form-check-label" for="inlineFormCheck">
-                            Remember me
-                        </label>
+                    <div className="login-signup-google">
+                        <button onClick={e => this.handleClick(e)} type="submit" class="btn btn-primary">
+                            Submit
+                        </button>{" "}
+                        <a className="login-google" href="/auth/google">
+                            {" "}
+                            Login with Google
+                        </a>
                     </div>
-                    <button type="submit" className="btn btn-primary mb-2">
-                        Submit
-                    </button>
                 </form>
+                {this.state.message && <div className="info info-danger">{this.state.message}</div>}
             </div>
         )
     }

@@ -1,3 +1,4 @@
+const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy
 const path = require("path")
 require("dotenv").config({ path: path.join(__dirname, ".env") })
 
@@ -53,6 +54,7 @@ require("./passport")(app)
 app.use("/api", require("./routes/index"))
 app.use("/api", require("./routes/auth"))
 app.use("/api/selections", require("./routes/selection"))
+app.use("/auth", require("./routes/googleAuth"))
 
 // For any routes that starts with "/api", catch 404 and forward to error handler
 app.use("/api/*", (req, res, next) => {

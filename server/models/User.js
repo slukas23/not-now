@@ -6,6 +6,7 @@ const userSchema = new Schema(
     {
         username: String,
         password: String,
+        googleID: String,
         selection: [
             {
                 type: Schema.Types.ObjectId,

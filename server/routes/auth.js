@@ -109,4 +109,25 @@ router.get("/logout", (req, res) => {
     res.json({ message: "You are out!" })
 })
 
+// GOOGLE LOGIN SIGNUP
+
+router.get(
+    "/google",
+    passport.authenticate("google", {
+        scope: "email"
+    })
+)
+
+router.get(
+    "/google/callback",
+    passport.authenticate("google", {
+        failureRedirect: "/login",
+        successRedirect: "/"
+    })
+)
+
+router.get("/logout", (req, res) => {
+    req.logout()
+    res.redirect("/")
+})
 module.exports = router
