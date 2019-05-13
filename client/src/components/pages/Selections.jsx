@@ -16,18 +16,20 @@ class Selections extends Component {
                 <div className="content-wrapper">
                     <div class="list-group">
                         <h2>My Selections</h2>
-                        <a class="list-group-item list-group-item-action">
-                            {this.state.selections.map(selection => (
-                                <li key={selection._id}>
-                                    <Link to={`/selections/${selection._id}`}>{selection.name}</Link>
-                                </li> // here goes a Link
-                            ))}
-                        </a>
+
+                        {this.state.selections.map(selection => (
+                            <li key={selection._id}>
+                                <Link
+                                    to={`/selections/${selection._id}`}
+                                    className="list-group-item list-group-item-action"
+                                >
+                                    {selection.name}
+                                </Link>
+                            </li> // here goes a Link
+                        ))}
                     </div>
                 </div>
             </div>
-
-
         )
     }
     componentDidMount() {

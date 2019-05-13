@@ -2,7 +2,6 @@ const mongoose = require("mongoose")
 const Schema = mongoose.Schema
 
 const selectionSchema = new mongoose.Schema({
-    /* image: {}, */
     name: {
         type: String,
         required: [true, "The Selection name is required"],
@@ -13,9 +12,9 @@ const selectionSchema = new mongoose.Schema({
         type: String
     },
 
-    imgUrl: {
+    /*  imgUrl: {
         type: String
-    },
+    }, */
     notnow: [
         {
             type: Schema.Types.ObjectId,

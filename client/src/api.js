@@ -104,18 +104,19 @@ export default {
             .get("/secret")
             .then(res => res.data)
             .catch(errHandler)
-    }
-}
+    },
 
-/* addPicture(file) {
-        const formData = new FormData()
-        formData.append("picture", file)
+    addUrl(body) {
         return service
-            .post("/endpoint/to/add/a/picture", formData, {
-                headers: {
-                    "Content-Type": "multipart/form-data"
-                }
-            })
+            .post("/addurl", body)
             .then(res => res.data)
             .catch(errHandler)
-    } */
+    },
+
+    getUrl() {
+        return service
+            .get("/geturl")
+            .then(res => res.data)
+            .catch(errHandler)
+    }
+}
