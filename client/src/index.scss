@@ -224,15 +224,18 @@ li {
     border-radius: 10px;
 }
 
-.Selection {
-    margin-top: 100px;
-}
-
 .Welcome {
     margin-top: 0px;
 }
 
 // My Selections
+
+.sel-details-wrapper {
+    // display: flex;
+    //  justify-content: center;
+    margin-top: 100px;
+    width: 60vw;
+}
 
 .list-group-item list-group-item-action {
     margin: 90px;
@@ -244,4 +247,16 @@ li {
 
 .card-body {
     color: $primary;
+}
+
+// In My Selections
+
+.row {
+    margin-bottom: 20px;
+}
+
+#my-sel-icons {
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
 }

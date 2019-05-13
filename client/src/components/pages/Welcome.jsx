@@ -73,20 +73,25 @@ class Welcome extends Component {
                         </div>
                     </form>
                 </div>
-                <div className="card">
-                    {
-                        <img
-                            className="card-img-top"
-                            src="https://images.unsplash.com/photo-1553467067-fd3b56696f65?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
-                            alt="Card image cap"
-                        />
-                    }
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">{this.state.input}</p>
-                        <a href={this.state.input} className="btn btn-primary">
-                            Follow Link
-                        </a>
+
+                <h1>My List</h1>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="list-group">
+                            <a href="#" className="list-group-item list-group-item-action">
+                                url 1 // if u click on it follow the link
+                            </a>
+                            <a href="#" className="list-group-item list-group-item-action">
+                                url 2 // add delete button on the right side
+                            </a>
+                            <a href="#" className="list-group-item list-group-item-action">
+                                url 3
+                            </a>
+                            <a href="#" className="list-group-item list-group-item-action">
+                                url 4
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

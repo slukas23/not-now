@@ -29,6 +29,10 @@ class Details extends React.Component {
         console.log("state data", this.state)
     }
 
+    //openEditBlock = () => {
+
+    //  }
+
     // Delete selection NEW
 
     handleDelete = () => {
@@ -68,16 +72,61 @@ class Details extends React.Component {
         // }
 
         return (
-            <div className="Selection">
-                <div>
-                    <h1>{this.state.selection.name} </h1>
-                    <p>{this.state.selection.description}</p>
-                    <Link to="/selections">Back</Link>
-                    {editBlock}
+            <div /* className="Selection" */>
+                <div className="sel-details-wrapper">
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <h1>{this.state.selection.name} </h1>
+                            <p>{this.state.selection.description}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <img src="/add.png" id="my-sel-icons" alt="" />
+
+                            {/* <Link to="/selections">Back</Link> */}
+                        </div>
+                        <div class="col-sm">
+                            <img src="/rubbish-bin.png" id="my-sel-icons" onClick={this.handleDelete} alt="" />
+                            {/* <button
+                                style={{ marginTop: "10px" }}
+                                className="btn btn-danger"
+                                onClick={this.handleDelete}
+                            >
+                                Delete Selection
+                            </button> */}
+                        </div>
+                        <div class="col-sm">
+                            <img src="/pencil-edit-button.png" id="my-sel-icons" alt="" />
+                        </div>
+                        <div class="col-sm">
+                            <img src="/share.png" id="my-sel-icons" alt="" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="list-group">
+                                <a href="#" className="list-group-item list-group-item-action">
+                                    url 1 // if u click on it follow the link
+                                </a>
+                                <a href="#" className="list-group-item list-group-item-action">
+                                    url 2 // add delete button on the right side
+                                </a>
+                                <a href="#" className="list-group-item list-group-item-action">
+                                    url 3
+                                </a>
+                                <a href="#" className="list-group-item list-group-item-action">
+                                    url 4
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         )
     }
 }
+
+// {editBlock}
 
 export default Details
