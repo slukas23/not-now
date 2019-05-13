@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import ListItems from "./urls/ListItems"
 import api from "../../api"
 
 class Welcome extends Component {
@@ -25,23 +26,43 @@ class Welcome extends Component {
             url: this.state.url
         }
         api.addUrl(data)
-            .then(result => {
-                console.log("SUCCESS!")
-                this.setState({
-                    // name: "",
-                    url: ""
-                    // message: "Url successfully added to My List!"
-                })
-                setTimeout(() => {
+            .then(() => {
+                this.fetchList().then(urls => {
                     this.setState({
-                        message: null
+                        urls: urls,
+                        url: ""
                     })
-                }, 2000)
+                })
             })
             .catch(err => this.setState({ message: err.toString() }))
     }
 
+    fetchList = () => {
+        // using the api, get the list from the server
+        // with the results, set the state in the parent component (Welcome)
+        return api.getUrl()
+    }
+
+    componentDidMount() {
+        // called when render method is first called
+        this.fetchList()
+            .then(urls => {
+                this.setState({
+                    urls: urls
+                })
+            })
+            .catch(err => console.log(err))
+    }
+
+    componentDidUpdate() {
+        // called whenever the render method is called after that
+        this.fetchList()
+    }
+
     render() {
+        const reversedUrls = this.state.urls.slice()
+        reversedUrls.reverse()
+
         return (
             <div className="Welcome">
                 <div className="content-wrapper">
@@ -80,16 +101,7 @@ class Welcome extends Component {
                     <div class="col-sm-12">
                         <div class="list-group">
                             <a href="#" className="list-group-item list-group-item-action">
-                                url 1 // if u click on it follow the link
-                            </a>
-                            <a href="#" className="list-group-item list-group-item-action">
-                                url 2 // add delete button on the right side
-                            </a>
-                            <a href="#" className="list-group-item list-group-item-action">
-                                url 3
-                            </a>
-                            <a href="#" className="list-group-item list-group-item-action">
-                                url 4
+                                <ListItems urls={reversedUrls} />
                             </a>
                         </div>
                     </div>

@@ -106,12 +106,16 @@ export default {
             .catch(errHandler)
     },
 
+    // Add new url
+
     addUrl(body) {
         return service
             .post("/addurl", body)
             .then(res => res.data)
             .catch(errHandler)
     },
+
+    // Get url from database
 
     getUrl() {
         return service
