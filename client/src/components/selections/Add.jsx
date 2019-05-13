@@ -48,21 +48,22 @@ class AddSelection extends Component {
     render() {
         return (
             <div className="AddSelection">
-                <div className="selection-wrapper">
+                <div className="content-wrapper">
                     <h2>Create new Selection</h2>
+                    
                     <form>
+                    <div class="form-group">
+                    <label for="exampleInputEmail1">Name</label>
+                          <input type="text" value={this.state.name} name="name" onChange={this.handleInputChange} class="form-control" id="exampleInputEmail1" />
                         {/*  <img value={IMG FROM FIRST ADDED URL GOES HERE}></img>  */}
-                        Name:{" "}
-                        <input type="text" value={this.state.name} name="name" onChange={this.handleInputChange} />{" "}
-                        <br />
-                        Description:{" "}
-                        <textarea
-                            value={this.state.description}
+                        </div>
+                        <div class="form-group">
+                        <label for="exampleInputPassword1">Description</label>
+                            <textarea value={this.state.description}
                             name="description"
-                            onChange={this.handleInputChange}
-                        />{" "}
-                        <br />
-                        <button onClick={e => this.handleClick(e)}>Create selection</button>
+                            onChange={this.handleInputChange} class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            </div>
+                        <button onClick={e => this.handleClick(e)} class="btn btn-primary">Create Selection</button>
                     </form>
                     {this.state.message && <div className="info">{this.state.message}</div>}
                 </div>
@@ -72,3 +73,32 @@ class AddSelection extends Component {
 }
 
 export default AddSelection
+
+
+
+{/* <div className="AddSelection">
+                <div className="content-wrapper">
+                    <h2>Create new Selection</h2>
+
+
+                    <form>
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Name</label>
+                          <input type="text" value={this.state.name} name="name" onChange={this.handleInputChange} class="form-control" id="exampleInputEmail1" />
+    
+                        </div>
+
+                     <div class="form-group">
+                        <label for="exampleInputPassword1">Description</label>
+                            <textarea value={this.state.description}
+                            name="description"
+                            onChange={this.handleInputChange} class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+  
+                    <button onClick={e => this.handleClick(e)} class="btn btn-primary">Create Selection</button>
+                    </form>{this.state.message && <div className="info">{this.state.message}
+                </div> */}
+
+            
+                    
+

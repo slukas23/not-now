@@ -11,7 +11,9 @@ export default class Home extends Component {
         return (
             <div className="Home">
                 <div className="content-wrapper">
-                    <img src="src/circular-button-with-two-arrows-pointing-both-laterals.png" />
+                <div className="avatar">
+                   <img src="https://image.flaticon.com/icons/svg/263/263138.svg" alt="" />
+                   </div>
                     <h1>Welcome to NotNow</h1>
                     <p>
                         Save, manage and store all your favourite resources in one place and check them out later. Not

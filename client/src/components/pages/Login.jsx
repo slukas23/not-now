@@ -58,8 +58,8 @@ export default class Login extends Component {
                         />
                     </div>
                     <div className="login-signup-google">
-                        <button onClick={e => this.handleClick(e)} type="submit" class="btn btn-primary">
-                            Submit
+                        <button onClick={e => this.handleSubmit(e)} type="submit" class="btn btn-primary">
+                            Login
                         </button>{" "}
                         <a className="login-google" href="/auth/google">
                             {" "}

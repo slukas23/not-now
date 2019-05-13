@@ -82,7 +82,7 @@ export default class Signup extends Component {
 
                     <div className="login-signup-google">
                         <button onClick={e => this.handleClick(e)} type="submit" class="btn btn-primary">
-                            Submit
+                            Signup
                         </button>{" "}
                         <a className="login-google" href="/auth/google">
                             {" "}
