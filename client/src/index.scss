@@ -88,7 +88,7 @@ body {
     margin-top: 160px;
     width: 50vw;
     padding: 30px;
-  //background-color: #004e6609;
+    //background-color: #004e6609;
     //border: 1px solid #f4f4f47a;
     border-radius: 20px;
 }
@@ -113,41 +113,40 @@ body {
 } */
 
 @keyframes float {
-	0% {
-		//box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
-		transform: translatey(0px);
-	}
-	50% {
-		//box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
-		transform: translatey(-20px);
-	}
-	100% {
-		//box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+    0% {
+        //box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
         transform: translatey(0px);
-	}
+    }
+    50% {
+        //box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+        transform: translatey(-20px);
+    }
+    100% {
+        //box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+        transform: translatey(0px);
+    }
 }
 
 .avatar {
-	width: 135px;
-	height: 135px;
-	box-sizing: border-box;
-	//border: 5px #f3f3f3 solid;
-	border-radius: 10%;
-	overflow: hidden;
-	//box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
-	transform: translatey(0px);
-	animation: float 6s ease-in-out infinite;
-	img { width: 100%; height: auto; }
+    width: 135px;
+    height: 135px;
+    box-sizing: border-box;
+    //border: 5px #f3f3f3 solid;
+    border-radius: 10%;
+    overflow: hidden;
+    //box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+    transform: translatey(0px);
+    animation: float 6s ease-in-out infinite;
+    img {
+        width: 100%;
+        height: auto;
+    }
 }
 
 h1 {
     margin-bottom: 20px;
     //font-size: 3em;
     //color: #fff;
-}
-
-.btn btn-primary mb-2 {
-    margin-top: 20px;
 }
 
 /* #signup {
@@ -170,7 +169,6 @@ h1 {
 .nav-link:hover {
     text-decoration: none;
 }
-
 
 /* Signup & Login Form */
 
@@ -228,4 +226,8 @@ li {
 
 .Selection {
     margin-top: 100px;
+}
+
+.Welcome {
+    margin-top: 0px;
 }

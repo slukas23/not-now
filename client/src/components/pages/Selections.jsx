@@ -26,6 +26,8 @@ class Selections extends Component {
                     </div>
                 </div>
             </div>
+
+
         )
     }
     componentDidMount() {

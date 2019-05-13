@@ -8,6 +8,7 @@ import Login from "./pages/Login"
 import Signup from "./pages/Signup"
 import api from "../api"
 import Details from "./selections/Details"
+import Welcome from "./pages/Welcome"
 
 export default class App extends Component {
     handleLogoutClick(e) {
@@ -30,7 +31,7 @@ export default class App extends Component {
                     <div className="collapse navbar-collapse" id="navbarCollapse">
                         <ul className="navbar-nav ml-auto">
                             <li className="navbar-item">
-                                <a class="nav-link">{api.isLoggedIn() && <NavLink to="/">Home </NavLink>}</a>
+                                <a class="nav-link">{api.isLoggedIn() && <NavLink to="/welcome">Home </NavLink>}</a>
                             </li>
                             <li className="navbar-item">
                                 <a class="nav-link">
@@ -66,6 +67,7 @@ export default class App extends Component {
 
                 <Switch>
                     <Route path="/" exact component={Home} />
+                    <Route path="/welcome" exact component={Welcome} />
                     <Route exact path="/selections" component={Selections} />
                     <Route path="/add-selection" component={Add} />
                     <Route path="/selections/:id" component={Details} />
