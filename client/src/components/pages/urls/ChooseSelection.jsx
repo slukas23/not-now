@@ -44,11 +44,8 @@ class ChooseSelection extends Component {
     render() {
         return (
             <div>
-                <Button color="danger" onClick={this.toggle}>
-                    {this.props.buttonLabel}
-                </Button>
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-                    <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
+                    <ModalHeader toggle={this.toggle}>Choose selection</ModalHeader>
                     <ModalBody>
                         {this.state.selections.map(selection => (
                             <li key={selection._id}>
@@ -57,19 +54,19 @@ class ChooseSelection extends Component {
                                     to={`/selections/${selection._id}`}
                                     className="list-group-item list-group-item-action"
                                 >
-                                    <button>{selection.name}</button>
+                                    <button className="add-to-selection-button">{selection.name}</button>
                                 </form>
                             </li>
                         ))}
                     </ModalBody>
-                    <ModalFooter>
+                    {/*  <ModalFooter>
                         <Button color="primary" onClick={this.toggle}>
                             Do Something
                         </Button>{" "}
                         <Button color="secondary" onClick={this.toggle}>
                             Cancel
                         </Button>
-                    </ModalFooter>
+                    </ModalFooter> */}
                 </Modal>
             </div>
         )

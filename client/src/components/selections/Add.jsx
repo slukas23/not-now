@@ -59,7 +59,7 @@ class AddSelection extends Component {
                                 value={this.state.name}
                                 name="name"
                                 onChange={this.handleInputChange}
-                                maxlength="20"
+                                maxlength="25"
                                 class="form-control"
                                 id="exampleInputEmail1"
                             />

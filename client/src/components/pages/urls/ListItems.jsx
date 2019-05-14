@@ -47,29 +47,41 @@ class ListItems extends Component {
         return (
             <div className="list-group">
                 {this.props.urls.map((el, i) => (
-                    <div>
+                    <div className="url-form-add-btn-wrapper">
                         <div>
                             <a
                                 // onMouseEnter={() => this.handleMouseHover(el._id)}
                                 // onMouseLeave={() => this.handleMouseHover()}
                                 key={el._id}
                                 href={el.url}
-                                className="list-group-item list-group-item-action mb-2 rounded"
+                                className="list-group-item list-group-item-action mb-2"
                             >
                                 <h3>{el.name}</h3>
-                                <small>{el.url}</small>
+                                <p className="saved-urls">{el.url}</p>
                             </a>
                         </div>
                         <div>
-                            <button
+                            {/*   <button
                                 type="button"
                                 class="btn btn-primary"
+                                id="add-to-selection-button"
                                 data-toggle="modal"
                                 data-target="#exampleModalLong"
                                 onClick={() => this.handleCopy(i, el._id)} // if there are 2 params => arrow func
                             >
                                 +
-                            </button>
+                            </button> */}
+                            {
+                                //<div className="icon-border-mylist">
+                                <img
+                                    onClick={() => this.handleCopy(i, el._id)}
+                                    className="prepend-buttons"
+                                    src="/add.png"
+                                    alt="Add to selection"
+                                />
+                                // </div>
+                            }
+
                             {this.state.indexUrl === i && (
                                 <ChooseSelection
                                     UrlID={this.state.idUrl}

@@ -312,3 +312,53 @@ li {
 .card {
     width: 18rem;
 }
+
+// Add to selection Modal
+
+.url-form-add-btn-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.add-to-selection-button {
+    background-color: rgba(255, 255, 255, 0);
+    cursor: pointer;
+    border: none;
+    //padding-right: 37%;
+}
+
+/* .add-to-selection-img {
+    padding-top: 20px;
+    padding-bottom: 109px;
+} */
+
+.modal-title {
+    color: #004e66;
+}
+
+.saved-urls {
+    margin-bottom: 0;
+}
+
+/* #prepend-btn {
+    padding: 16px 12px;
+    border-radius: 50px;
+} */
+
+.prepend-buttons {
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    padding: 17px;
+    box-sizing: border-box;
+    border-radius: 20%;
+    overflow: hidden;
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+    margin-bottom: 9px;
+    margin-left: 20px;
+}
+
+.prepend-buttons:hover {
+    background-color: #ffffff8f;
+}

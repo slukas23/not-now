@@ -26,7 +26,7 @@ class Selections extends Component {
                                     className="list-group-item list-group-item-action"
                                 >
                                     {selection.name}
-                                </Link>
+                                </Link>{" "}
                             </li>
                         ))}
                     </div>
