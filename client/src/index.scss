@@ -4,16 +4,14 @@ $primary: #004e66;
 
 body {
     margin: 0;
-    // margin-top: 90px;
     padding: 0;
-    font-family: Nunito, sans-serif;
-    //background-image: url("./pipes.png");
     color: #fff;
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    font-family: Nunito, sans-serif;
+    background: linear-gradient(-45deg, #e5ffb4, #ee7752, #f3851d, #e73c7e, #23a6d5, #23d5ab, #4cdb47);
     background-size: 400% 400%;
-    -webkit-animation: Gradient 15s ease infinite;
-    -moz-animation: Gradient 15s ease infinite;
-    animation: Gradient 15s ease infinite;
+    -webkit-animation: Gradient 30s ease infinite;
+    -moz-animation: Gradient 30s ease infinite;
+    animation: Gradient 30s ease infinite;
 }
 
 @-webkit-keyframes Gradient {
@@ -58,22 +56,6 @@ body {
     //text-align: center;
     display: flex;
     justify-content: center;
-
-    /* .App-header {
-        background-color: $primary;
-        padding: 20px;
-        color: white;
-
-        a {
-            color: white;
-            padding: 0 5px;
-            text-decoration: none;
-        }
-
-        a.active {
-            font-weight: bold;
-        }
-    } */
 }
 
 // Style for Home component
@@ -84,18 +66,46 @@ body {
     }
 }
 
+a {
+    //color: white;
+    padding: 0 5px;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: none;
+}
+
+a.active {
+    font-weight: bold;
+    text-decoration: none;
+}
+
+// This is the wrapper for welcome page
+
+.Welcome {
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+// This is the wrapper for the
+
 .content-wrapper {
     margin-top: 160px;
-    width: 50vw;
+    width: 60vw;
     padding: 30px;
     //background-color: #004e6609;
     //border: 1px solid #f4f4f47a;
-    border-radius: 20px;
+    // border-radius: 20px;
 }
 
-/* .logo {
-    background-image: url("./circular-button-with-two-arrows-pointing-both-laterals.png");
-} */
+.welcome-wrapper {
+    margin-top: 10px;
+    width: 100vw;
+    padding: 30px;
+    //background-color: #004e6609;
+    //border: 1px solid #f4f4f47a;
+    // border-radius: 20px;
+}
 
 // Style for Secret component
 .Secret {
@@ -132,9 +142,9 @@ body {
     height: 135px;
     box-sizing: border-box;
     //border: 5px #f3f3f3 solid;
-    border-radius: 10%;
+    // border-radius: 10%;
     overflow: hidden;
-    //box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+    // box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
     transform: translatey(0px);
     animation: float 6s ease-in-out infinite;
     img {
@@ -166,8 +176,15 @@ h1 {
     box-shadow: 0px 8px 27px 1px rgba(82, 82, 82, 0.51);
 }
 
-.nav-link:hover {
-    text-decoration: none;
+.navbar-item {
+    margin-left: 20px;
+    display: block;
+    margin-bottom: 3px;
+}
+
+.navbar-item:hover {
+    background-color: #ebebeb;
+    border-radius: 3px;
 }
 
 /* Signup & Login Form */
@@ -182,23 +199,19 @@ h1 {
 // Signup form background
 
 .Signup {
-    margin-top: 130px;
-    /*    background: #f3f3f344;
-    padding: 40px 40px 30px 40px;
-    border-radius: 30px;
-    border: #ccc 1px solid; */
+    margin-top: 200px;
     width: 500px;
-    /* -webkit-box-shadow: 0px 8px 27px 1px rgba(82, 82, 82, 0.51);
-    -moz-box-shadow: 0px 8px 27px 1px rgba(82, 82, 82, 0.51);
-    box-shadow: 0px 8px 27px 1px rgba(82, 82, 82, 0.51); */
 }
-
 // Link
 
 .login-google {
     font-size: 1em;
     color: #fff;
+}
+
+.login-google:hover {
     text-decoration: none;
+    color: rgb(212, 212, 212);
 }
 
 // Container Button + Link
@@ -217,46 +230,80 @@ h1 {
     width: 500px;
 } */
 
-li {
-    list-style-type: none;
-}
-.list-group-item {
-    border-radius: 10px;
-}
-
-.Welcome {
-    margin-top: 0px;
-}
-
 // My Selections
 
 .sel-details-wrapper {
     // display: flex;
     //  justify-content: center;
     margin-top: 100px;
+    padding-bottom: 50px;
     width: 60vw;
 }
 
-.list-group-item list-group-item-action {
-    margin: 90px;
-}
-
-.card {
-    width: 18rem;
-}
-
-.card-body {
-    color: $primary;
+li {
+    margin-bottom: 10px;
+    list-style-type: none;
 }
 
 // In My Selections
 
 .row {
-    margin-bottom: 20px;
+    margin-top: 20px;
+    border-bottom: 1px solid rgb(221, 221, 221);
 }
 
 #my-sel-icons {
-    height: 20px;
-    width: 20px;
+    height: 50px;
+    width: 50px;
     cursor: pointer;
+    padding: 17px;
+    box-sizing: border-box;
+    border-radius: 20%;
+    overflow: hidden;
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+    margin-bottom: 40px;
+    margin-top: 20px;
+}
+
+#my-sel-icons:hover {
+    transform: translatey(3px);
+    animation: float 9 ease-out;
+    background-color: #ffffff8f;
+}
+
+/* #my-sel-icons:hover {
+    padding: 30px;
+    border-radius: 10px;
+    border: 2px solid white;
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+} */
+
+/* .icon-border {
+    width: 60px;
+    height: 60px;
+    box-sizing: border-box;
+    border: 5px #f3f3f3 solid;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+    transform: translatey(0px);
+    animation: float 6s ease-in-out infinite;
+    img {
+        width: 100%;
+        height: auto;
+    }
+} */
+
+#icon-align {
+    text-align: center;
+}
+
+.display-url {
+    display: flex;
+    flex-direction: row;
+    // background-color: #e73c7e;
+}
+
+.card {
+    width: 18rem;
 }

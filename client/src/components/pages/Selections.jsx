@@ -10,7 +10,9 @@ class Selections extends Component {
         }
     }
     render() {
-        console.log(this.state.selections)
+        //const reversedSelections = this.state.selections.slice()
+        // reversedSelections.reverse()
+
         return (
             <div className="MySelections">
                 <div className="content-wrapper">
@@ -25,7 +27,7 @@ class Selections extends Component {
                                 >
                                     {selection.name}
                                 </Link>
-                            </li> // here goes a Link
+                            </li>
                         ))}
                     </div>
                 </div>

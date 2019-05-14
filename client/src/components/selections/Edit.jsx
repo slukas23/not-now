@@ -31,6 +31,7 @@ class EditSelection extends React.Component {
             //     description: ""
             // })
             this.props.handleEdit(response.selection)
+            this.props.showEditBlock()
         })
     }
 

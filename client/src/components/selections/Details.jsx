@@ -6,10 +6,16 @@ import EditSelection from "./Edit"
 
 class Details extends React.Component {
     state = {
-        selection: {}
+        selection: {},
+        editVisible: false
     }
 
-    // equals to getProject
+    // show hide {editblock}
+
+    showEditBlock = () => {
+        this.setState({ editVisible: !this.state.editVisible })
+    }
+
     getSelectionById = () => {
         const id = this.props.match.params.id
 
@@ -28,10 +34,6 @@ class Details extends React.Component {
         })
         console.log("state data", this.state)
     }
-
-    //openEditBlock = () => {
-
-    //  }
 
     // Delete selection NEW
 
@@ -63,6 +65,7 @@ class Details extends React.Component {
                     selection={selection}
                     getDetails={this.state.getSelectionById}
                     handleEdit={this.handleEdit}
+                    showEditBlock={this.showEditBlock}
                 />
                 <button style={{ marginTop: "10px" }} className="btn btn-danger" onClick={this.handleDelete}>
                     Delete Selection
@@ -72,17 +75,21 @@ class Details extends React.Component {
         // }
 
         return (
-            <div /* className="Selection" */>
+            <div>
                 <div className="sel-details-wrapper">
-                    <div class="row">
+                    <div class="row" id="selection-details-divider">
                         <div class="col-sm-8">
                             <h1>{this.state.selection.name} </h1>
                             <p>{this.state.selection.description}</p>
                         </div>
                     </div>
-                    <div class="row">
+                    {this.state.editVisible && editBlock}
+
+                    <div class="row" id="icon-align">
                         <div class="col-sm">
-                            <img src="/add.png" id="my-sel-icons" alt="" />
+                            <div className="icon-border">
+                                <img src="/add.png" id="my-sel-icons" alt="Add to selection" />
+                            </div>
 
                             {/* <Link to="/selections">Back</Link> */}
                         </div>
@@ -97,28 +104,10 @@ class Details extends React.Component {
                             </button> */}
                         </div>
                         <div class="col-sm">
-                            <img src="/pencil-edit-button.png" id="my-sel-icons" alt="" />
+                            <img src="/pencil-edit-button.png" id="my-sel-icons" onClick={this.showEditBlock} alt="" />
                         </div>
                         <div class="col-sm">
                             <img src="/share.png" id="my-sel-icons" alt="" />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="list-group">
-                                <a href="#" className="list-group-item list-group-item-action">
-                                    url 1 // if u click on it follow the link
-                                </a>
-                                <a href="#" className="list-group-item list-group-item-action">
-                                    url 2 // add delete button on the right side
-                                </a>
-                                <a href="#" className="list-group-item list-group-item-action">
-                                    url 3
-                                </a>
-                                <a href="#" className="list-group-item list-group-item-action">
-                                    url 4
-                                </a>
-                            </div>
                         </div>
                     </div>
                 </div>

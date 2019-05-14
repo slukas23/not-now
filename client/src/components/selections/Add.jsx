@@ -6,7 +6,7 @@ class AddSelection extends Component {
         super(props)
         this.state = {
             name: "",
-            image: "",
+            // image: "",
             description: "",
             message: null
         }
@@ -24,7 +24,7 @@ class AddSelection extends Component {
         e.preventDefault()
         console.log(this.state.name, this.state.description)
         let data = {
-            image: this.state.image,
+            // image: this.state.image,
             name: this.state.name,
             description: this.state.description
         }
@@ -63,7 +63,6 @@ class AddSelection extends Component {
                                 class="form-control"
                                 id="exampleInputEmail1"
                             />
-                            {/*  <img value={IMG FROM FIRST ADDED URL GOES HERE}></img>  */}
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Description</label>
@@ -91,7 +90,8 @@ class AddSelection extends Component {
 export default AddSelection
 
 {
-    /* <div className="AddSelection">
+    {
+        /* <div className="AddSelection">
                 <div className="content-wrapper">
                     <h2>Create new Selection</h2>
 
@@ -113,4 +113,5 @@ export default AddSelection
                     <button onClick={e => this.handleClick(e)} class="btn btn-primary">Create Selection</button>
                     </form>{this.state.message && <div className="info">{this.state.message}
                 </div> */
+    }
 }

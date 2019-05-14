@@ -19,7 +19,7 @@ export default class App extends Component {
         return (
             <div className="App">
                 <nav className="navbar navbar-light bg-light navbar-expand-lg fixed-top">
-                    <a class="navbar-brand">
+                    <a className="navbar-brand">
                         <NavLink to="/" exact>
                             NotNow
                         </NavLink>
@@ -31,35 +31,45 @@ export default class App extends Component {
                     <div className="collapse navbar-collapse" id="navbarCollapse">
                         <ul className="navbar-nav ml-auto">
                             <li className="navbar-item">
-                                <a class="nav-link">{api.isLoggedIn() && <NavLink to="/welcome">Home </NavLink>}</a>
-                            </li>
-                            <li className="navbar-item">
-                                <a class="nav-link">
-                                    {api.isLoggedIn() && <NavLink to="/add-selection">Add Selection </NavLink>}
+                                <a className="nav-link">
+                                    {api.isLoggedIn() && <NavLink to="/welcome">MY LIST </NavLink>}
                                 </a>
                             </li>
                             <li className="navbar-item">
-                                <a class="nav-link">
-                                    {api.isLoggedIn() && <NavLink to="/selections">My Selections</NavLink>}
+                                <a className="nav-link">
+                                    {api.isLoggedIn() && <NavLink to="/selections">MY SELECTIONS</NavLink>}
                                 </a>
                             </li>
                             <li className="navbar-item">
-                                <a class="nav-link">{!api.isLoggedIn() && <NavLink to="/signup">Signup</NavLink>} </a>
+                                <a className="nav-link">
+                                    {api.isLoggedIn() && <NavLink to="/add-selection">ADD SELECTION </NavLink>}
+                                </a>
+                            </li>
+                            <li
+                                style={api.isLoggedIn() ? { visibility: "hidden" } : { visibility: "flex" }}
+                                className="navbar-item"
+                            >
+                                <a className="nav-link">
+                                    {!api.isLoggedIn() && <NavLink to="/signup">SIGNUP</NavLink>}{" "}
+                                </a>
+                            </li>
+                            <li
+                                style={api.isLoggedIn() ? { visibility: "hidden" } : { visibility: "flex" }}
+                                className="navbar-item"
+                            >
+                                <a className="nav-link">{!api.isLoggedIn() && <NavLink to="/login">LOGIN</NavLink>}</a>
                             </li>
                             <li className="navbar-item">
-                                <a class="nav-link">{!api.isLoggedIn() && <NavLink to="/login">Login</NavLink>}</a>
-                            </li>
-                            <li className="navbar-item">
-                                <a class="nav-link">
+                                <a className="nav-link">
                                     {api.isLoggedIn() && (
                                         <Link to="/" onClick={e => this.handleLogoutClick(e)}>
-                                            Logout
+                                            LOGOUT
                                         </Link>
                                     )}
                                 </a>
                             </li>
-                            {/* <li class="navbar-item">
-                                <a class="nav-link">{api.isLoggedIn() && <NavLink to="/secret">Secret</NavLink>}</a>
+                            {/* <li className="navbar-item">
+                                <a className="nav-link">{api.isLoggedIn() && <NavLink to="/secret">Secret</NavLink>}</a>
                             </li> */}
                         </ul>
                     </div>
