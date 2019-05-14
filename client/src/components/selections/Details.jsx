@@ -67,9 +67,9 @@ class Details extends React.Component {
                     handleEdit={this.handleEdit}
                     showEditBlock={this.showEditBlock}
                 />
-                <button style={{ marginTop: "10px" }} className="btn btn-danger" onClick={this.handleDelete}>
+                {/* <button style={{ marginTop: "10px" }} className="btn btn-danger" onClick={this.handleDelete}>
                     Delete Selection
-                </button>
+                </button> */}
             </div>
         )
         // }

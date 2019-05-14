@@ -25,11 +25,6 @@ class EditSelection extends React.Component {
         api.updateSelection(id, newData).then(response => {
             console.log("Component edited!", response)
 
-            // this.setState({
-            //     // image: "",
-            //     name: "",
-            //     description: ""
-            // })
             this.props.handleEdit(response.selection)
             this.props.showEditBlock()
         })
@@ -46,8 +41,8 @@ class EditSelection extends React.Component {
         return (
             <div>
                 <hr />
-                <h3>Edit your selection!</h3>
-                <form onSubmit={this.handleSubmit}>
+                <h4>Edit your selection!</h4>
+                <form className="edit-selection-form" onSubmit={this.handleSubmit}>
                     <div className="form-group">
                         <label>Name:</label>
                         <input
@@ -68,7 +63,14 @@ class EditSelection extends React.Component {
                             name="description"
                         />
                     </div>
-                    <input className="btn btn-primary" type="submit" value="Update Project" />
+                    <div className="delete-and-edit-btn">
+                        <button className="btn btn-primary" type="submit">
+                            Update Selection
+                        </button>
+                        <button className="btn btn-danger" onClick={this.handleDelete}>
+                            Delete Selection
+                        </button>
+                    </div>
                 </form>
             </div>
         )

@@ -6,6 +6,7 @@ const router = express.Router()
 router.get("/", (req, res, next) => {
     console.log("im here")
     Selection.find()
+        .populate("notnow")
         .then(selections => {
             res.json(selections)
         })

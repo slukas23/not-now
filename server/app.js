@@ -54,6 +54,7 @@ require("./passport")(app)
 app.use("/api", require("./routes/index"))
 app.use("/api", require("./routes/addurl"))
 app.use("/api", require("./routes/auth"))
+app.use("/api", require("./routes/addurltoselection"))
 app.use("/api/selections", require("./routes/selection"))
 app.use("/auth", require("./routes/googleAuth"))
 

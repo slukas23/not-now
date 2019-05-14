@@ -1,39 +1,76 @@
 import React, { Component } from "react"
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap"
+import api from "../../../api"
+import { Link } from "react-router-dom"
 
 class ChooseSelection extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            modal: true,
+            selections: []
+        }
+
+        this.toggle = this.toggle.bind(this)
+    }
+
+    toggle() {
+        this.setState(prevState => ({
+            modal: !prevState.modal
+        }))
+    }
+
+    componentDidMount() {
+        api.getSelections()
+            .then(selections => {
+                console.log(selections)
+                this.setState({
+                    selections: selections
+                })
+            })
+            .catch(err => console.log(err))
+    }
+
+    handleSubmit = _id => {
+        const selectionId = _id
+        const urlId = this.props.UrlID
+        api.addUrlToSelection(urlId, selectionId).then(response => {
+            console.log("handleSubmit success!")
+            this.props.resetValues()
+            this.setState({ modal: false })
+        })
+    }
+
     render() {
         return (
             <div>
-                <div
-                    class="modal fade"
-                    id="exampleModalLong"
-                    tabindex="-1"
-                    role="dialog"
-                    aria-labelledby="exampleModalLongTitle"
-                    aria-hidden="true"
-                >
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLongTitle">
-                                    Modal title
-                                </h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">...</div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                                    Close
-                                </button>
-                                <button type="button" class="btn btn-primary">
-                                    Save changes
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <Button color="danger" onClick={this.toggle}>
+                    {this.props.buttonLabel}
+                </Button>
+                <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+                    <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
+                    <ModalBody>
+                        {this.state.selections.map(selection => (
+                            <li key={selection._id}>
+                                <form
+                                    onSubmit={() => this.handleSubmit(selection._id)}
+                                    to={`/selections/${selection._id}`}
+                                    className="list-group-item list-group-item-action"
+                                >
+                                    <button>{selection.name}</button>
+                                </form>
+                            </li>
+                        ))}
+                    </ModalBody>
+                    <ModalFooter>
+                        <Button color="primary" onClick={this.toggle}>
+                            Do Something
+                        </Button>{" "}
+                        <Button color="secondary" onClick={this.toggle}>
+                            Cancel
+                        </Button>
+                    </ModalFooter>
+                </Modal>
             </div>
         )
     }

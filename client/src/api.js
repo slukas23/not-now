@@ -106,7 +106,7 @@ export default {
             .catch(errHandler)
     },
 
-    // Add new url
+    // Add new url to my List
 
     addUrl(body) {
         return service
@@ -120,6 +120,15 @@ export default {
     getUrl() {
         return service
             .get("/geturl")
+            .then(res => res.data)
+            .catch(errHandler)
+    },
+
+    // Add url to my selection
+
+    addUrlToSelection(urlId, selectionId) {
+        return service
+            .post(`/${selectionId}/add/${urlId}`)
             .then(res => res.data)
             .catch(errHandler)
     }
