@@ -15,8 +15,8 @@ router.get("/", (req, res, next) => {
 
 // Route to add a selection
 router.post("/", (req, res, next) => {
-    let { /* image */ name, description } = req.body
-    Selection.create({ /* image */ name, description })
+    let { name, description } = req.body
+    Selection.create({ name, description })
         .then(selection => {
             res.json({
                 success: true,
@@ -31,6 +31,7 @@ router.post("/", (req, res, next) => {
 router.get("/:id", (req, res, next) => {
     let selectionId = req.params.id
     Selection.findOne({ _id: selectionId })
+        .populate("notnow")
         .then(selection => {
             res.json(selection)
         })
@@ -57,7 +58,7 @@ router.put("/:id", (req, res) => {
 // Route to delete a selection NEW
 
 router.delete("/:id", (req, res) => {
-    Selection.findOneAndDelete(req.params.id)
+    Selection.findOneAndDelete({ _id: req.params.id })
         .then(selection => {
             console.log("deleted successfully!")
             // .status() optional

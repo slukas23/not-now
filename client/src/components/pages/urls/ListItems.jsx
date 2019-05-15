@@ -56,8 +56,8 @@ class ListItems extends Component {
                                 href={el.url}
                                 className="list-group-item list-group-item-action mb-2"
                             >
-                                <h3>{el.name}</h3>
-                                <p className="saved-urls">{el.url}</p>
+                                <h4>{el.title}</h4>
+                                <small className="saved-urls">{el.url}</small>
                             </a>
                         </div>
                         <div>
@@ -83,11 +83,7 @@ class ListItems extends Component {
                             }
 
                             {this.state.indexUrl === i && (
-                                <ChooseSelection
-                                    UrlID={this.state.idUrl}
-                                    history={this.props.history}
-                                    resetValues={this.resetValues}
-                                />
+                                <ChooseSelection UrlID={this.state.idUrl} resetValues={this.resetValues} />
                             )}
                         </div>
                     </div>

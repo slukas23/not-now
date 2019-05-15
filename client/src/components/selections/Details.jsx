@@ -3,11 +3,13 @@ import axios from "axios"
 import { Link } from "react-router-dom"
 import api from "../../api"
 import EditSelection from "./Edit"
+import ChooseFromMyList from "../pages/urls/ChooseFromMyList"
 
 class Details extends React.Component {
     state = {
         selection: {},
-        editVisible: false
+        editVisible: false,
+        displayModal: false
     }
 
     // show hide {editblock}
@@ -47,6 +49,10 @@ class Details extends React.Component {
         })
     }
 
+    handleModalDisplay = () => {
+        this.setState({ displayModal: !this.state.displayModal })
+    }
+
     componentDidMount() {
         this.getSelectionById()
     }
@@ -76,6 +82,14 @@ class Details extends React.Component {
 
         return (
             <div>
+                {this.state.displayModal && (
+                    <ChooseFromMyList
+                        selectionId={this.props.match.params.id}
+                        {...this.state}
+                        clicked={this.handleModalDisplay}
+                        refreshApi={this.getSelectionById}
+                    />
+                )}
                 <div className="sel-details-wrapper">
                     <div class="row" id="selection-details-divider">
                         <div class="col-sm-8">
@@ -88,7 +102,12 @@ class Details extends React.Component {
                     <div class="row" id="icon-align">
                         <div class="col-sm">
                             <div className="icon-border">
-                                <img src="/add.png" id="my-sel-icons" alt="Add to selection" />
+                                <img
+                                    src="/add.png"
+                                    id="my-sel-icons"
+                                    alt="Add to selection"
+                                    onClick={this.handleModalDisplay}
+                                />
                             </div>
 
                             {/* <Link to="/selections">Back</Link> */}
@@ -110,6 +129,25 @@ class Details extends React.Component {
                             <img src="/share.png" id="my-sel-icons" alt="" />
                         </div>
                     </div>
+                    {this.state.selection.notnow && (
+                        <div className="selection-wrapper">
+                            <div class="list-group">
+                                {this.state.selection.notnow.map(oneNotNow => (
+                                    <li key={oneNotNow._id}>
+                                        {console.log(oneNotNow)}
+                                        <a
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            href={oneNotNow.url}
+                                            className="list-group-item list-group-item-action"
+                                        >
+                                            {oneNotNow.url}
+                                        </a>
+                                    </li>
+                                ))}
+                            </div>
+                        </div>
+                    )}
                 </div>
             </div>
         )

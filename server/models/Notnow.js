@@ -2,7 +2,7 @@ const mongoose = require("mongoose")
 const Schema = mongoose.Schema
 
 const notnowSchema = new mongoose.Schema({
-    name: {
+    title: {
         type: String
         // required: [true, "The notnow name is required"],
         // minlength: 1

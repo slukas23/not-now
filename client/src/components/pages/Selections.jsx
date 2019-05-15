@@ -10,8 +10,8 @@ class Selections extends Component {
         }
     }
     render() {
-        //const reversedSelections = this.state.selections.slice()
-        // reversedSelections.reverse()
+        const reversedSelections = this.state.selections.slice()
+        reversedSelections.reverse()
 
         return (
             <div className="MySelections">
